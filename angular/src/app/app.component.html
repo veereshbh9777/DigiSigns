@@ -1,0 +1,49 @@
+<div class="container row">
+    <div class="col-md-12">
+        <h1>Upload Image</h1>
+    </div>
+</div>
+
+<div class="container row">
+    <div class="col-md-6">
+        <input type="file" (change)="onFileChanged($event)">
+
+        <img [src]="imgURL" height="200" *ngIf="imgURL">
+    </div>
+    <div class="col-md-6">
+        <input type="button" (click)="onUpload()" value="Upload">
+    </div>
+</div>
+
+<hr />
+<div class="container row">
+    <div class="col-md-12">
+        <div *ngIf=message>{{message}}</div>
+    </div>
+</div>
+
+<div class="container row">
+    <div class="col-md-6">
+        <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName" name="name" />
+    </div>
+    <div class="col-md-6">
+        <input type="button" (click)="getImage()" value="Search">
+    </div>
+</div>
+
+<div class="container row">
+    <div class="col-md-12">
+        <div *ngIf=retrievedImage>
+            <img [src]="retrievedImage">
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+      <button class="col btn btn-success" (click)="likeButtonClick()">Like</button><br>
+      <p class="col">{{numberOfLikes}}</p>
+      <button class="col btn btn-danger" (click)="dislikeButtonClick()">Dislike</button><br>
+      <p class="col">{{numberOfDisLikes}}</p>
+    </div>
+  </div>
